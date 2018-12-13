@@ -16,7 +16,7 @@ Website: http://Alvarez.is/
 
 /* BASIC THEME CONFIGURATION */
 body {
-    color: #f9f9f9;
+    color: #3e3e3e;
 	background: #eaeaea;
     font-family: 'Ruda', sans-serif;
     padding: 0px !important;
@@ -399,7 +399,7 @@ ul.sidebar-menu li a.active i {
 
 /* MAIN CONTENT CONFIGURATION */
 #main-content {
-    margin-left: 210px;
+    margin-left: 170px;
 }
 
 .header, .footer {
@@ -1080,15 +1080,34 @@ PANELS CONFIGURATIONS
 
 /*Content Panel*/
 .content-panel {
-	background: #ffffff;
+	background: #FFFFFF;
 	box-shadow: 0px 3px 2px #aab2bd;
-	padding-top: 15px;
-	padding-bottom: 5px;
+	padding-top: 25px;
+	padding-bottom: 35px;
 }
 .content-panel h4 {
 	margin-left: 10px;
 }
+.content-panel h3 {
+    font-weight: bold;
+    color: #544e4e;
+}
+.content-panel h5 {
+    font-size: 11px;
+    color: #afafaf;
+}
+.content-panel h5 span{
+    font-style: italic; 
+}
+.content-panel hr{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 0;
+    border-top: 1px solid #797979;
+}
+.content-panel .mt{
 
+}
 /*WEATHER PANELS*/
 
 /* Weather 1 */
@@ -2154,10 +2173,11 @@ ul.my-friends li .friends-pic {
 	width: auto;
 }
 .invoice-body {
-	padding: 30px;
+	padding: 18px;
 }
 .invoice-body h1 {
 	font-weight: 900;
+    font-size: 72px;
 }
 .invoice-body h4 {
 	margin-left: 0px;
@@ -3450,3 +3470,5 @@ ul.chat-available-user li a:hover {
   color: #fff;
 }
 
+
+/*inbackimg*/
