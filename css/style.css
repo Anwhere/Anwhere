@@ -1105,8 +1105,14 @@ PANELS CONFIGURATIONS
     border: 0;
     border-top: 1px solid #797979;
 }
-.content-panel .mt{
-
+.content-panel button{
+    background-color: #F2E800;
+}
+.content-panel button a:link{
+    color: #3e3e3e;
+}
+.content-panel button a:visited {
+    color: #3e3e3e;
 }
 /*WEATHER PANELS*/
 
@@ -3471,4 +3477,43 @@ ul.chat-available-user li a:hover {
 }
 
 
-/*inbackimg*/
+/*Content Blog*/
+.content-blog {
+    background: #FFFFFF;
+    box-shadow: 0px 3px 2px #aab2bd;
+    padding-top: 25px;
+    padding-bottom: 35px;
+
+}
+.content-blog h4 {
+    margin-left: 10px;
+}
+.content-blog h3 {
+    font-weight: bold;
+    color: #544e4e;
+}
+.content-blog h5 {
+    font-size: 11px;
+    color: #afafaf;
+}
+.content-blog h5 span{
+    font-style: italic; 
+}
+.content-blog hr{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 0;
+    border-top: 1px solid #797979;
+}
+.content-blog .mt{
+
+}
+.content-blog button{
+    background-color: #F2E800;
+}
+.content-blog button a:link{
+    color: #3e3e3e;
+}
+.content-blog button a:visited {
+    color: #3e3e3e;
+}
