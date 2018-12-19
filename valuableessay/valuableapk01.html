@@ -72,8 +72,8 @@
               <span>任务Review</span>
               </a>
             <ul class="sub">
-              <li class="active"><a href="../general.html">Visualization</a></li>
-              <li><a href="../valuable.html">Valuable</a></li>
+              <li><a href="../general.html">Visualization</a></li>
+              <li class="active"><a href="../valuable.html">Valuable</a></li>
               <li><a href="../frontend.html">Frontend</a></li>
               <li><a href="../backend.html">Backend</a></li>
             </ul>
@@ -147,44 +147,82 @@
           <div class="col-lg-10 col-lg-offset-1">
             <div class="row">
               <div class="col-md-6 mt">
-                <img src="../img/visual/messydraw02.png" width="320">
-                <h3>MessyCurveDraw 飞线作画的实现<br>Processing &amp; Visualization</h3>
+                <img src="../img/valueable/apk02.jpg" width="320">
+                <h3>APK反编译与源码查看<br>APK &amp; Valuable</h3>
                 <hr>
-                <h5>By Anwhere Jin. <span>Date issued : 12-13-2018.</span></h5>
-                <br>
-                <h4>· 01>>> 程序结构</h4> 
-                <p class="mt">主代码非常简单，首先是导入图片，设置画布大小，背景等，然后开始调用主要的paint类进行绘制，通过key ‘s’ 控制是否停止和开始绘制，我没有让他加载和控制实现鼠标点击切换绘制的图片。主代码改写成java的方式相对比较容易，js的var改写成相应的数值类型，函数function改写成void就可以了。</p>
-                <div class="centered">
-                  <img src="../img/visual/messydraw03.png" width="320">
-                </div>
-                
-                <p class="mt">其中最主要的实现类就是Paint类了，郑越升先生在<a href="https://mp.weixin.qq.com/s/2gT3olCDo6TgseFCjoZiHA">这篇文章</a>里详细介绍了具体的实现思想，自己可以前往看看，我简单描述一下相关的内容。
-                  <ul>
-                    <li>a. Paint落笔根据【避光性】行走，我们可以取到每一笔走动前的该像素点所在固定区域对该点的力的作用加总，为其所行走的方向和大小，其‘力’为固定区域内不同像素点相对该点的方向和亮度值的引力大小，亮度越高，受力越小。</li>
-                    <li>b. 添加noise"风场"，避免画笔的轨迹在一定区域内亮度值相同轨迹为一条直线</li>
-                    <li>c. 所有画笔走过的地方增加其亮度值，避免亮度很低的区域作画频次太多。</li>
-                    <li>d. 增加“墨点”，即受力超过阈值会画一个粗的轨迹，形成墨点状</li>
-                  </ul>
+                <h5>By Anwhere Jin. <span>Date issued : 06-26-2017.</span></h5>
+
+                <p class="mt">
+                  最近在很多公共场合会突然听到一阵靡靡之音，不仅让人十分尴尬，也有扰乱秩序之嫌，原因是一款名叫“悄悄话查看器”的软件，坑了那些好奇心强又没有安全意识的人，安装该软件后会控制整个手机，只有关机卸载才能恢复原状，现在对该软件进行反编译查看源码
+                </p><br>
+                <h4>· 01>>> 准备工具</h4> 
+                <p class="mt">
+                  <code>&lt;1&gt;.android4me的AXMLPrinter2工具</code>
+                  <code>&lt;2&gt;dex2jar</code>
+                  <code>&lt;3&gt;jd-gui</code>
+                </p><br>
+                <h4>· 02>>> 解压apk文件</h4> 
+                <p class="mt">
+                  <p class="mmt">将apk文件后缀名修改为rar或者zip,用解压工具解压，举个栗子，最近突然坑了很多人的一款名叫“悄悄话查看器”apk软件，我们想知道里面的源代码首先进行解压 </p>
+                  <div class="centered">
+                  <img src="../img/valueable/apk03.jpg" width="320">
+                  </div>
+                  <p class="mmt">解压后包含如下文件</p>
+                  <div class="centered">
+                  <img src="../img/valueable/apk04.jpg" width="320">
+                  </div>
+                  <p class="mmt">可以看到里面的xml文件是乱码的 </p>
+                  <div class="centered">
+                  <img src="../img/valueable/apk05.jpg" width="320">
+                  </div>
+                </p><br>
+                <h4>· 03>>> 转换xml文件</h4> 
+                <p class="mt">
+                  <p class="mmt">打开cmd进入目的文件夹 </p>
+                  <div class="centered">
+                  <img src="../img/valueable/apk06.jpg" width="320">
+                  </div>
+                  <p class="mmt">如后输入代码进行转换，其中，showtimes_list.xml是你要查看的乱码的xml文件，h.xml是转换后的非乱码的文件。名字可自定义。</p>
+                  <code>java -jar AXMLPrinter2.jar showtimes_list.xml > h.xml </code>
+                  <div class="centered">
+                  <img src="../img/valueable/apk07.jpg" width="320">
+                  </div>
                 </p>
 
-                <div class="centered">
-                  <img src="../img/visual/messydraw04.png" width="320">
-                </div>
-                
+
+
               </div>
 
-              <div class="col-md-6 mt">
-                <h4>· 02>>> 问题汇总</h4> 
-                <p class="mt">Sen 在P5实现的时候重写了Image的get函数，我们在processing里面可以直接使用Image的get函数，也不会降低帧率</p>
-                <p>溅落墨点的实现我设置了墨点的Alpha值，不然出来的墨点都是同一个亮度，最终形成的图案看点来有点儿违和。</p>
-                <br>
-                <h4>· 03>>> 相关连接</h4> 
+            <div class="col-md-6 mt">
+              <h4>· 03>>> 将dex文件转换为jar文件</h4> 
                 <p class="mt">
-                  作品链接和相关代码的GitHub地址我分享在下方<br>
-                  <a href="https://www.openprocessing.org/sketch/486307">OpenProcessing作品直达</a><br>
-                  <a href="https://mp.weixin.qq.com/s/2gT3olCDo6TgseFCjoZiHA">公众号文章分享</a><br>
-                  <a href="https://github.com/Anwhere/MessyDraw">GitHub地址</a>
+                  <p class="mmt">解压后的目录中有一个classes.dex文件，我们需要将dex文件变为jar文件。这里用到了另一个工具dex2jar。用cmd进入到dex2jar的文件目录中，并把classes.dex文件拷贝过来。</p>
+                  <div class="centered">
+                  <img src="../img/valueable/apk08.jpg" width="320">
+                  </div>
+                  <p class="mmt">输入以下命令： </p>
+                  <code>dex2jar.bat classes.dex </code>
+                  <div class="centered">
+                  <img src="../img/valueable/apk09.jpg" width="320">
+                  </div>
+                  <p class="mmt">运行成功后会出现一个新的classes_dex2jar.jar的文件就是我们需要得到的文件 </p>
+                  <div class="centered">
+                  <img src="../img/valueable/apk10.jpg" width="320">
+                  </div>
+                </p><br>
+                <h4>· 04>>> 查看源代码</h4> 
+                <p class="mt">
+                  <p class="mmt">利用jd-gui，将jar文件反向工程为java代码。打开jd-gui把刚才生成的那个jar文件，拖到这里面就直接能查看源代码了。不过这个源代码并不是原来一模一样的真源代码 </p>
+                  <div class="centered">
+                  <img src="../img/valueable/apk11.jpg" width="320">
+                  </div>
+                </p><br>
+                <h4>· 05>>> 资源下载</h4> 
+                <p class="mt">
+                  <a href="http://download.csdn.net/detail/anwhere_jin/9558953">悄悄话查看器</a><br>
+                  <a href="http://download.csdn.net/detail/anwhere_jin/9558952">APK反编译&源码查看工具</a>
                 </p>
+
                 <br>
                 <br>
                 <hr>
@@ -192,8 +230,8 @@
                   <img src="../img/visual/messydraw05.gif" class="img-circle" width="80">
                   <p class="centered">谢谢！</p>
                 </div>
-
               </div>
+
             </div>
           </div>
         </div>

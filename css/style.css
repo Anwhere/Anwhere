@@ -1114,6 +1114,10 @@ PANELS CONFIGURATIONS
 .content-panel button a:visited {
     color: #3e3e3e;
 }
+.content-panel img {
+    box-shadow: 0px 3px 2px #aab2bd;
+}
+
 /*WEATHER PANELS*/
 
 /* Weather 1 */
@@ -3487,6 +3491,7 @@ ul.chat-available-user li a:hover {
 }
 .content-blog h4 {
     margin-left: 10px;
+    font-weight: bold;
 }
 .content-blog h3 {
     font-weight: bold;
@@ -3499,14 +3504,18 @@ ul.chat-available-user li a:hover {
 .content-blog h5 span{
     font-style: italic; 
 }
+.content-blog h6 {
+    margin-left: 10px;
+    font-weight: bold;
+}
 .content-blog hr{
     margin-top: 5px;
     margin-bottom: 5px;
     border: 0;
     border-top: 1px solid #797979;
 }
-.content-blog .mt{
-
+.mmt{
+    margin-top: 10px;
 }
 .content-blog button{
     background-color: #F2E800;
@@ -3516,4 +3525,7 @@ ul.chat-available-user li a:hover {
 }
 .content-blog button a:visited {
     color: #3e3e3e;
+}
+.content-blog img {
+    box-shadow: 0px 3px 2px #aab2bd;
 }
