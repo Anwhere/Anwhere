@@ -3529,7 +3529,16 @@ ul.chat-available-user li a:hover {
 .content-blog img {
     box-shadow: 0px 3px 2px #aab2bd;
 }
-
+.content-blog .st {
+    font-weight: bold;
+}
+.content-blog .bgr {
+    background: lightgrey;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-left: 3px;
+    margin-right: 3px;
+}
 /*email theme bk*/
 body.emailbody {
     background: url("../img/connect/backemail.jpeg");
