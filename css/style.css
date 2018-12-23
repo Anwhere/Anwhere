@@ -3614,7 +3614,7 @@ font-size: 11px;
   letter-spacing: 3px;
 }
 
-/**/
+/*messy draw cavas*/
 canvas{
     display: block;
     margin: 0 auto;
@@ -3626,4 +3626,18 @@ canvas{
 }
 .p5Canvas{
     margin: 0,auto;
+}
+
+/* xsatr count */
+.time-item strong {
+    background:#F2E800;
+    color:#000;
+    line-height:49px;
+    font-size:36px;
+    font-family:Arial;
+    padding:0 10px;
+    margin-right:10px;
+    border-radius:5px;
+    box-shadow:1px 1px 3px rgba(0,0,0,0.2);
+    margin-top: 5px;
 }
