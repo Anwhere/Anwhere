@@ -3641,3 +3641,25 @@ canvas{
     box-shadow:1px 1px 3px rgba(0,0,0,0.2);
     margin-top: 5px;
 }
+
+/*paginationbox*/
+ul.paginationbox {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+ 
+ul.paginationbox li {display: inline;}
+ 
+ul.paginationbox li a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid blue;
+    border-radius:3px;
+}
+
+.paginationbox .currtive{
+    background-color: #7FFFAA;
+}
