@@ -147,168 +147,44 @@
           <div class="col-lg-10 col-lg-offset-1">
             <div class="row">
               <div class="col-md-6 mt">
-                <img src="../img/frontend/pagination01.png" width="320">
-                <h3>JQuery实现分页 | Pagination <br>JQuery &amp; Frontend</h3>
+                <img src="../img/frontend/xstarcount02.png" width="320">
+                <h3>用五分钟快速写一个用于活动的倒计时+计分板的DEMO<br>JS &amp; Frontend</h3>
                 <hr>
-                <h5>By Anwhere Jin. <span>Date issued : 26-12-2018.</span></h5>
-                <p class="mt">考虑到首页的新闻版块日后会有越来越多的内容注入，所以简单利用JQuery实现了一下分页的功能，这样首页界面不会一下子堆积所有的内容版块，便于查看</p>
-                <br><h4>· 01>>> 需求分析</h4>
+                <h5>By Anwhere Jin. <span>Date issued : 25-12-2018.</span></h5>
+                <p class="mt">活动的需求十分简单，即有一个需要倒计时2分30秒的事件，有六组家庭参与活动强大得分，需要为他们各自分配一个用于累计得分的计数板。</p>
+                <br><h4>· 01>>> 计分板</h4>
                 <p class="mt">
-                  <p class="mmt">.1) 每页显示<span class="bgr">pagetionnum</span> 数量的新闻版块</p>
-                  <p class="mmt">.2) 根据所有新闻版块的数量和每页显示的新闻版块数量确定总共的分页数<span class="bgr">totalPage</span>，底部展示页面中一次显示的页面数为<span class="bgr">pageSize</span> </p>
-                  <p class="mmt">.3) 初始当前页<span class="bgr">currentPage</span>为1</p>
-                  <p class="mmt">.4) 点击具体页面或上一页下一页可以跳转到指定页</p>
-                  <p class="mmt">.5) 底部样式自定义</p>
-                </p>
-                <br><h4>· 02>>> 实现思路</h4>
-                <p class="mt">
-                  <p class="mmt">HTML页面预设总页面数和当前页面数，对每个新闻版块添加<span class="bgr">pagetionnum</span>的类，主要实现js为<span class="bgr">pagetionnum</span>paginationbox.js，绑定点击页码事件，绑定下一页点击事件，绑定上一页点击事件，实现方法为<span class="bgr">drawpage</span>。主要通过JQuery的<span class="bgr">show()</span>和<span class="bgr">hide()</span>显示和隐藏新闻版块。</p>
-                </p>
-                <br><h4>· 03>>> HTML页面</h4>
-                <p class="mt">
+                  <p class="mmt">计分板十分简单，直接在js里为每组家庭分配一个用于计数的值<span class="bgr">inidnum</span>，点击<span class="bgr">+</span>则累加该值，并显示在页面上</p>，点击<span class="bgr">-</span>则累减该值，并显示在页面上</p>
                   <div class="centered">
-                    <img src="../img/frontend/pagination02.png" width="320">
+                    <img src="../img/frontend/xstarcount03.png">
                   </div>
                 </p>
-                <br><h4>· 03>>> js绘制分页样式</h4>
+                <br><h4>· 02>>> 倒计时</h4>
                 <p class="mt">
-                  <pre>//绘制页面分页样式
-  function drawpage(page,curPage){
-    //页面中的当前面
-    var page =page;
-    //后台传过来的页数
-    var curPage = curPage;
-    //后台传过来的总页数
-    var datas =$("#totalPage").val();
-    //每面显示多少条数据
-    var pageSize =5;
-    //在网页中一共要分多少面
-    var totalPage = Math.floor((datas-1)/pageSize+1);
-
-    //显示div数组化
-    var mypagetion = [];
-    mypagetion[0] = "nopage";
-    for (i=1; i<=datas; i++) {
-      mypagetion[i] = ".pagetion"+ i;
-      $(mypagetion[i]).hide();
-    }
-    
-    var liStr ="&lt;li&gt;&lt;a id='previousPage' href='#'&gt;«&lt;/a&gt;&lt;/li&gt;";
-    $("#currentPage").val(curPage);
-    if(page <= totalPage){
-      if(datas <= 5){
-        for(i=1; i<=datas; i++){
-          //为当前页增加样式
-          var currtive ="";
-          if(i==curPage){
-            currtive=" class='currtive' ";
-            $(mypagetion[i]).show();
-          }
-          liStr +=" &lt;li>&lt;a id="+i+" "+currtive+" href='#'>"+i+"&lt;/a>&lt;/li>"
-        }
-      }else{
-        var start =pageSize*(page-1)+1;
-        var end =page*pageSize;
-        if(page == totalPage){
-          for(i=start; i<=datas; i++){
-            //为当前页增加样式
-            var currtive ="";
-            if(i==curPage){
-              currtive=" class='currtive' ";
-              $(mypagetion[i]).show();
-            }
-            liStr +=" &lt;li>&lt;a id="+i+" "+currtive+" href='#'>"+i+"&lt;/a>&lt;/li>";            
-          }
-        }else{
-          for(i=start; i<=end; i++){
-            //为当前页增加样式
-            var currtive ="";
-            if(i==curPage){
-              currtive=" class='currtive' ";
-              $(mypagetion[i]).show();
-            }
-            liStr +=" &lt;li>&lt;a id="+i+" "+currtive+" href='#'>"+i+"&lt;/a>&lt;/li>";
-          }
-        }
-      }
-    }
-    liStr +="&lt;li>&lt;a id='nextPage' href='#'>»&lt;/a>&lt;/li>";
-    $(".paginationbox").append(liStr);
-  }</pre>
-                </p>             
+                  <p class="mmt">倒计时采用<span class="bgr">setInterval()</span>方法，<span class="bgr">setInterval()</span>方法可按照指定的周期（以毫秒计）来调用函数或计算表达式。<span class="bgr">setInterval()</span> 方法会不停地调用函数，直到<span class="bgr">clearInterval()</span>  被调用或窗口被关闭。设置初始倒计时数，每当<span class="bgr">setInterval()</span>被调用时，倒计时秒数-1，然后显示到页面上。</p>
+                  <div class="centered">
+                    <img src="../img/frontend/xstarcount04.png">
+                    <p>点击调用倒计时方法</p>
+                  </div>
+                  <div class="centered">
+                    <img src="../img/frontend/xstarcount05.png">
+                    <p>倒计时方法</p>
+                  </div>
+                </p>            
               </div>
 
             <div class="col-md-6 mt">
-              <br><h4>· 04>>> js绑定点击事件页面</h4>
+              <br><h4>· 03>>> setInterval()多次调用问题</h4>
               <p class="mt">
-                <pre>//绑定点击页码事件
-  $(document).on("click",".paginationbox li a",function(){
-    var str =$(this).html();
-    if(!isNaN(str)){
-      //移除之前的currtive
-      $(".paginationbox li a").removeClass("currtive");
-      $(this).attr("class","currtive");
-      $("#currentPage").val(str);
-      drawstatic(parseInt(str));
-    }
-  });
-  
-  //绑定下一页点击事件
-  $(document).on("click","#nextPage",function(){
-    var num =$(".currtive").html();
-    var curPage =$("#currentPage").val();
-    var last =$("#totalPage").val();
-    var page =Math.ceil((parseInt(num))/5);
-    if(num < page*5 && num != last){
-      //移除之前的currtive
-      $(".paginationbox li a").removeClass("currtive");
-      $("#"+(parseInt(num)+1)+"").attr("class","currtive");
-      //$(".paginationbox li a[text="+(parseInt(num)+1)+"]").attr("class","currtive");//jQ1.6支持
-      $("#currentPage").val(parseInt(num)+1);
-      drawstatic(parseInt(num)+1);
-    }else if(num == page*5 && num != last){
-      //清空之前的数据
-      $(".paginationbox").html("");
-      drawpage(page+1,(parseInt(num)+1));
-    }
-  })
-  
-  //绑定上一页点击事件
-  $(document).on("click","#previousPage",function(){
-    var num =$(".currtive").html();
-    var curPage =$("#currentPage").val();
-    var last =$("#totalPage").val();
-    var page =Math.ceil((parseInt(num))/5);
-    if(num <= page*5 && num != (page-1)*5+1){
-      //移除之前的currtive
-      $(".paginationbox li a").removeClass("currtive");
-      $("#"+(parseInt(num)-1)+"").attr("class","currtive");
-      //$(".paginationbox li a[text="+(parseInt(num)+1)+"]").attr("class","currtive");//jQ1.6支持
-      $("#currentPage").val(parseInt(num)-1);
-      drawstatic(parseInt(num)-1);
-    }else if(num == (page-1)*5+1 && num != 1){
-      //清空之前的数据
-      $(".paginationbox").html("");
-      drawpage(page-1,(parseInt(num)-1));
-    }
-  })</pre>
+                <p class="mmt">重复点击倒计时按钮时发现倒计时像开了多线程一样并发计时，看到这样的效果便想到是<span class="bgr">setInterval()</span>每次点击都会被调用，造成多次调用，需要引入<span class="bgr">clearInterval()</span>清除先前的计时器</p>
+                <p class="mmt">实现方法也很简单，添加全局变量<span class="bgr">timerset</span>，在每次点击调用计时器方法时先清除原先的计时器。后续变不会出现多次调用的问题</p>
+                <div class="centered">
+                  <img src="../img/frontend/xstarcount06.png">
+                  <br><p>添加timerset清除计时器</p>
+                </div>
               </p>
-              <br><h4>· 05>>> js静态绘制分页样式</h4>
-              <p class="mt">
-                <pre>//绘制页面分页样式
-  function drawstatic(curPage){
-    //后台传过来的总页数
-    var datas =$("#totalPage").val();
-    //显示div数组化
-    var mypagetion = [];
-    mypagetion[0] = "nopage";
-    for (i=1; i<=datas; i++) {
-      mypagetion[i] = ".pagetion"+ i;
-      $(mypagetion[i]).hide();
-    }
-    $(mypagetion[curPage]).show();
-  }</pre>
-              </p>
+
+
                 <br>
                 <br>
                 <hr>
