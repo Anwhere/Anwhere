@@ -147,7 +147,7 @@
           <div class="col-lg-10 col-lg-offset-1">
             <div class="row">
               <div class="col-md-6 mt">
-                <img src="../img/valueable/apk02.jpg" width="320">
+                <img src="../img/valueable/apk02.jpg" class="img-responsive">
                 <h3>APK反编译与源码查看<br>APK &amp; Valuable</h3>
                 <hr>
                 <h5>By Anwhere Jin. <span>Date issued : 06-26-2017.</span></h5>
@@ -165,27 +165,27 @@
                 <p class="mt">
                   <p class="mmt">将apk文件后缀名修改为rar或者zip,用解压工具解压，举个栗子，最近突然坑了很多人的一款名叫“悄悄话查看器”apk软件，我们想知道里面的源代码首先进行解压 </p>
                   <div class="centered">
-                  <img src="../img/valueable/apk03.jpg" width="320">
+                  <img src="../img/valueable/apk03.jpg" class="img-responsive">
                   </div>
                   <p class="mmt">解压后包含如下文件</p>
                   <div class="centered">
-                  <img src="../img/valueable/apk04.jpg" width="320">
+                  <img src="../img/valueable/apk04.jpg" class="img-responsive">
                   </div>
                   <p class="mmt">可以看到里面的xml文件是乱码的 </p>
                   <div class="centered">
-                  <img src="../img/valueable/apk05.jpg" width="320">
+                  <img src="../img/valueable/apk05.jpg" class="img-responsive">
                   </div>
                 </p><br>
                 <h4>· 03>>> 转换xml文件</h4> 
                 <p class="mt">
                   <p class="mmt">打开cmd进入目的文件夹 </p>
                   <div class="centered">
-                  <img src="../img/valueable/apk06.jpg" width="320">
+                  <img src="../img/valueable/apk06.jpg" class="img-responsive">
                   </div>
                   <p class="mmt">如后输入代码进行转换，其中，showtimes_list.xml是你要查看的乱码的xml文件，h.xml是转换后的非乱码的文件。名字可自定义。</p>
                   <code>java -jar AXMLPrinter2.jar showtimes_list.xml > h.xml </code>
                   <div class="centered">
-                  <img src="../img/valueable/apk07.jpg" width="320">
+                  <img src="../img/valueable/apk07.jpg" class="img-responsive">
                   </div>
                 </p>
 
@@ -198,23 +198,23 @@
                 <p class="mt">
                   <p class="mmt">解压后的目录中有一个classes.dex文件，我们需要将dex文件变为jar文件。这里用到了另一个工具dex2jar。用cmd进入到dex2jar的文件目录中，并把classes.dex文件拷贝过来。</p>
                   <div class="centered">
-                  <img src="../img/valueable/apk08.jpg" width="320">
+                  <img src="../img/valueable/apk08.jpg" class="img-responsive">
                   </div>
                   <p class="mmt">输入以下命令： </p>
                   <code>dex2jar.bat classes.dex </code>
                   <div class="centered">
-                  <img src="../img/valueable/apk09.jpg" width="320">
+                  <img src="../img/valueable/apk09.jpg" class="img-responsive">
                   </div>
                   <p class="mmt">运行成功后会出现一个新的classes_dex2jar.jar的文件就是我们需要得到的文件 </p>
                   <div class="centered">
-                  <img src="../img/valueable/apk10.jpg" width="320">
+                  <img src="../img/valueable/apk10.jpg" class="img-responsive">
                   </div>
                 </p><br>
                 <h4>· 04>>> 查看源代码</h4> 
                 <p class="mt">
                   <p class="mmt">利用jd-gui，将jar文件反向工程为java代码。打开jd-gui把刚才生成的那个jar文件，拖到这里面就直接能查看源代码了。不过这个源代码并不是原来一模一样的真源代码 </p>
                   <div class="centered">
-                  <img src="../img/valueable/apk11.jpg" width="320">
+                  <img src="../img/valueable/apk11.jpg" class="img-responsive">
                   </div>
                 </p><br>
                 <h4>· 05>>> 资源下载</h4> 
